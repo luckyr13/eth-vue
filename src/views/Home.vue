@@ -1,29 +1,17 @@
 <template>
   <h1 class="main-title">Welcome!</h1>
-  <button id="show-modal" @click="showModal = true">Show Modal</button>
-  <!-- use the modal component, pass in the prop -->
-  <modal v-if="showModal" @close="showModal = false">
-    <template v-slot:header>
-      <h3>custom header</h3>
-    </template>
-  </modal>
+  <modal-button :showModalInit="false"></modal-button>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
-import Modal from '../components/Modal.vue';
+import { defineComponent } from 'vue';
+import ModalButton from '../components/ModalButton.vue';
 
 export default defineComponent({
   // type inference enabled
   components: {
-  	'modal': Modal
+  	'modal-button': ModalButton
   },
-	setup() {
-		const showModal = ref(false);
-		return {
-			showModal
-		}
-  }
 })
 
 </script>
