@@ -1,5 +1,5 @@
 <template>
-  <p>World! {{ greeting }} </p>
+  <h1 class="main-title">Welcome!</h1>
 </template>
 
 <script lang="ts">
@@ -7,21 +7,14 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   // type inference enabled
-  data () {
-  	return {
-
-  	}
-  },
-  props: {
-  	greeting: String
-  }
 })
 
 </script>
 
 <style scoped>
-p {
-  font-size: 2em;
+.main-title{
+  margin-bottom: 40px;
+  margin-top: 40px;
   text-align: center;
 }
 </style>
