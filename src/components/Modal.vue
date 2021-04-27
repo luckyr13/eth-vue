@@ -7,21 +7,18 @@
 
           <div class="modal-header">
             <slot name="header">
-              default header
             </slot>
           </div>
 
           <div class="modal-body">
             <slot name="body">
-              default body
             </slot>
           </div>
 
           <div class="modal-footer">
             <slot name="footer">
-              default footer
               <button class="modal-default-button" @click="$emit('close')">
-                OK
+                Close
               </button>
             </slot>
           </div>
@@ -34,7 +31,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 export default defineComponent({
-  
+
 });
 </script>
 
@@ -65,12 +62,14 @@ export default defineComponent({
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
   font-family: Helvetica, Arial, sans-serif;
+  color: #000;
 }
 
-.modal-header h3 {
+.modal-header {
   margin-top: 0;
-  color: #42b983;
+  color: #090D45;
 }
+
 
 .modal-body {
   margin: 20px 0;
@@ -79,6 +78,10 @@ export default defineComponent({
 .modal-default-button {
   display: block;
   margin-top: 1rem;
+  padding: 6px;
+  font-size: 14px;
+  background-color: #9495EB;
+  color: #000;
 }
 
 /*
@@ -103,4 +106,6 @@ export default defineComponent({
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+
+
 </style>

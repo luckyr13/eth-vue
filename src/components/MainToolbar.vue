@@ -11,9 +11,8 @@ import ethereum from '../assets/img/ethereum.png';
 export default defineComponent({
   // type inference enabled
   setup() {
-    const mainImage = computed(() => ethereum);
     return {
-      mainImage
+      mainImage: ethereum
     }
   },
 })

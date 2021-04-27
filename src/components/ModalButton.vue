@@ -3,7 +3,7 @@
   <!-- use the modal component, pass in the prop -->
   <modal v-if="showModal" @close="showModal = false">
     <template v-slot:header>
-      <h3>custom header</h3>
+      <h3>{{ title }}</h3>
     </template>
   </modal>
 </template>
@@ -14,15 +14,19 @@ import Modal from './Modal.vue';
 
 export default defineComponent({
 	props: {
-		showModalInit: Boolean
+		showModalInit: Boolean,
+		title: String
 	},
 	components: {
 		'modal': Modal
 	},
 	setup(props) {
 		const showModal = ref(props.showModalInit);
+		const title = ref(props.title);
+
 		return {
-			showModal
+			showModal,
+			title
 		}
 	}
 });

@@ -1,6 +1,9 @@
 <template>
   <h1 class="main-title">Welcome!</h1>
-  <modal-button :showModalInit="false"></modal-button>
+  <modal-button 
+  	title="Connect your wallet"
+  	:showModalInit="false"
+  	></modal-button>
 </template>
 
 <script lang="ts">
