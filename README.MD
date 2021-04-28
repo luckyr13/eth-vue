@@ -1,4 +1,4 @@
-# A simple Ethereum dApp on Vue
+# A simple Ethereum dApp on Vue3
 
 This is a boilerplate to quickly deploy an Ethereum dApp using Vue v3.
 
