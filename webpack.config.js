@@ -2,13 +2,28 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader')
 const webpack = require('webpack')
+const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
   entry: {
     polyfills: './src/polyfills.ts',
     index: './src/index.ts',
   },
-  mode: 'development',
+  mode: 'production',
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    },
+    runtimeChunk: {
+      name: 'manifest'
+    }
+  },
   module: {
     rules: [
       {
@@ -39,7 +54,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              outputPath: 'dist/assets/img',
+              outputPath: 'assets/img',
             },
           },
         ],
@@ -71,6 +86,9 @@ module.exports = {
     // fix "process is not defined" error:
     new webpack.ProvidePlugin({
       process: 'process/browser',
+    }),
+    new CompressionPlugin({
+      test: /\.js(\?.*)?$/i,
     }),
   
   ],
