@@ -40,10 +40,12 @@ export default defineComponent({
 <style scoped>
 .default-button {
   margin-top: 1rem;
-  padding: 6px;
-  font-size: 14px;
+  padding: 12px;
+  font-size: 18px;
   background-color: #9495EB;
-  color: #000;
+  color: #FFF;
+  cursor: pointer;
+
 }
 
 </style>

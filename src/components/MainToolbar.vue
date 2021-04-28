@@ -23,12 +23,13 @@ export default defineComponent({
 .main-toolbar {
   background-image: linear-gradient(to bottom right, #D3D7FC, #9495EB);
   text-align: center;
+  box-shadow: 0px 5px 10px  #888888;
 }
 
 .main-toolbar img {
-  width: 30px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  width: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .toolbar-spacer {
   flex: 1 1 auto;

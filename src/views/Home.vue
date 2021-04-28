@@ -1,21 +1,45 @@
 <template>
-  <h1 class="main-title">Welcome!</h1>
-  <div class="text-center">
-    <modal-button 
-      title="Connect your wallet"
-      :showModalInit="false"></modal-button>
+  <div v-if="!mainAccount" class="container text-center">
+    <img class="ether-logo" :src="ethereumLogo">
+    <button 
+      @click="requestAccounts()"
+      class="default-button">Connect wallet</button>
+  </div>
+  <div v-else class="container text-center">
+    <h2>Welcome {{ mainAccount }}</h2>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import ModalButton from '../components/ModalButton.vue';
+import { defineComponent, ref, onMounted } from 'vue';
+import ethereumGif from '../assets/img/ethereum-animated.gif';
+import { Web3Provider } from '../web3';
 
 export default defineComponent({
   // type inference enabled
   components: {
-  	'modal-button': ModalButton
   },
+  setup() {
+    let mainAccount = ref('');
+
+    // Init web3 component
+    const requestAccounts = async () => {
+      try {
+        const web3 = new Web3Provider();
+        await web3.setWeb3();
+        mainAccount.value = await web3.requestAccounts();
+
+      } catch (error) {
+        console.log(`Error: ${error.message}`)
+      }
+    };
+
+    return {
+      ethereumLogo: ethereumGif,
+      mainAccount: mainAccount,
+      requestAccounts
+    }
+  }
 })
 
 </script>
@@ -26,5 +50,26 @@ export default defineComponent({
   margin-top: 40px;
   text-align: center;
 }
+.ether-logo {
+  width: 240px;
+  display: block;
+  margin: 0 auto;
+}
 
+.container {
+  width: 800px;
+  margin: 0 auto;
+  min-height: 400px;
+  margin-top: 20px;
+}
+
+.default-button {
+  margin-top: 1rem;
+  padding: 12px;
+  font-size: 18px;
+  background-color: #9495EB;
+  color: #FFF;
+  cursor: pointer;
+
+}
 </style>

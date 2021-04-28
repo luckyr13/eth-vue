@@ -54,8 +54,8 @@ html, body {
 body {
   margin: 0;
   padding: 0;
-  background-color: #090D45;
-  color: #FFF;
+  background-color: #FFF;
+  color: #090D45;
 }
 
 .text-center {
