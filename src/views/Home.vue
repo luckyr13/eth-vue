@@ -14,6 +14,8 @@
 import { defineComponent, ref, onMounted } from 'vue';
 import ethereumGif from '../assets/img/ethereum-animated.gif';
 import { Web3Provider } from '../web3';
+import { createToast } from 'mosha-vue-toastify';
+import 'mosha-vue-toastify/dist/style.css'
 
 export default defineComponent({
   // type inference enabled
@@ -29,10 +31,25 @@ export default defineComponent({
         await web3.setWeb3();
         mainAccount.value = await web3.requestAccounts();
 
+        createToast(
+          `Welcome!`,
+          {
+            position: 'bottom-center',
+            type: 'success'
+          }
+        );
+
       } catch (error) {
-        console.log(`Error: ${error.message}`)
+        createToast(
+          `Error: ${error.message}`,
+          {
+            position: 'bottom-center',
+            type: 'danger'
+          }
+        );
       }
     };
+
 
     return {
       ethereumLogo: ethereumGif,
