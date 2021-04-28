@@ -1,9 +1,10 @@
 <template>
   <h1 class="main-title">Welcome!</h1>
-  <modal-button 
-  	title="Connect your wallet"
-  	:showModalInit="false"
-  	></modal-button>
+  <div class="text-center">
+    <modal-button 
+      title="Connect your wallet"
+      :showModalInit="false"></modal-button>
+  </div>
 </template>
 
 <script lang="ts">
@@ -25,4 +26,5 @@ export default defineComponent({
   margin-top: 40px;
   text-align: center;
 }
+
 </style>

@@ -1,7 +1,12 @@
 <template>
-	<button id="show-modal" @click="showModal = true">Show Modal</button>
+	<button 
+		class="default-button"
+		id="show-modal" 
+		@click="showModal = true">{{ title }}</button>
   <!-- use the modal component, pass in the prop -->
-  <modal v-if="showModal" @close="showModal = false">
+  <modal 
+  	v-if="showModal" 
+  	@close="showModal = false">
     <template v-slot:header>
       <h3>{{ title }}</h3>
     </template>
@@ -33,4 +38,12 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.default-button {
+  margin-top: 1rem;
+  padding: 6px;
+  font-size: 14px;
+  background-color: #9495EB;
+  color: #000;
+}
+
 </style>
